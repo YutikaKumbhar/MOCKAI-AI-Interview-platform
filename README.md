@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 **Use your preferred IDE**
 
 
@@ -44,3 +45,6 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS 
+=======
+# MOCKAI-AI-Interview-platform
+>>>>>>> 7910c5d61d4da2af779ac26eeca79c6375e95987
