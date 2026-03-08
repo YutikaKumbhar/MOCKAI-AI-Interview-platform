@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 25% 98%;
+    --foreground: 230 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 30% 12%;
+
+    --primary: 215 57% 47%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 215 70% 55%;
+
+    --secondary: 180 60% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 94%;
+    --muted-foreground: 230 15% 45%;
+
+    --accent: 35 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 145 58% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 95%;
+    --input: 210 20% 95%;
+    --ring: 215 57% 47%;
+
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 57% 47%), hsl(35 100% 55%));
+    --gradient-subtle: linear-gradient(180deg, hsl(220 25% 98%), hsl(210 40% 96%));
+    --gradient-accent: linear-gradient(120deg, hsl(215 57% 47%), hsl(35 100% 55%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 40px -10px hsl(215 57% 47% / 0.25);
+    --shadow-glow: 0 0 40px hsl(215 70% 55% / 0.3);
+    --shadow-card: 0 4px 20px hsl(230 30% 12% / 0.08);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 220 18% 18%;
+
+    --sidebar-primary: 215 17% 18%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 215 6% 95.9%;
+
+    --sidebar-accent-foreground: 215 17% 18%;
+
+    --sidebar-border: 210 13% 91%;
+
+    --sidebar-ring: 215 57% 47%;
+  }
+
+  .dark {
+    --background: 230 30% 8%;
+    --foreground: 220 20% 96%;
+
+    --card: 230 25% 12%;
+    --card-foreground: 220 20% 96%;
+
+    --popover: 230 25% 12%;
+    --popover-foreground: 220 20% 96%;
+
+    --primary: 215 60% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 215 70% 65%;
+
+    --secondary: 180 60% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 230 20% 16%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 35 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 145 58% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 215 60% 60%;
+    
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 60% 60%), hsl(35 100% 55%));
+    --gradient-subtle: linear-gradient(180deg, hsl(230 30% 8%), hsl(210 30% 12%));
+    --gradient-accent: linear-gradient(120deg, hsl(215 60% 60%), hsl(35 100% 55%));
+    
+    /* Dark mode shadows */
+    --shadow-elegant: 0 10px 40px -10px hsl(215 60% 60% / 0.4);
+    --shadow-glow: 0 0 50px hsl(215 70% 65% / 0.4);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.5);
+    --sidebar-background: 215 17% 18%;
+    --sidebar-foreground: 215 6% 95.9%;
+    --sidebar-primary: 215 57% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 12% 12%;
+    --sidebar-accent-foreground: 215 6% 95.9%;
+    --sidebar-border: 215 12% 12%;
+    --sidebar-ring: 215 60% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Custom animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in-from-bottom {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in-from-left {
+    from {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes zoom-in {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .animate-in {
+    animation-fill-mode: both;
+  }
+  
+  .fade-in {
+    animation-name: fade-in;
+  }
+  
+  .slide-in-from-bottom {
+    animation-name: slide-in-from-bottom;
+  }
+  
+  .slide-in-from-left {
+    animation-name: slide-in-from-left;
+  }
+  
+  .zoom-in {
+    animation-name: zoom-in;
+  }
+  
+  .duration-300 {
+    animation-duration: 300ms;
+  }
+  
+  .duration-500 {
+    animation-duration: 500ms;
+  }
+  
+  .duration-700 {
+    animation-duration: 700ms;
+  }
+  
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+}
